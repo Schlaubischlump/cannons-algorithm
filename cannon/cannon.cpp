@@ -8,7 +8,7 @@ typedef float data_t;
 int main(int argc, char* argv[])
 {
   // size of matrix
-  int n = 1<<10;
+  int n = 1<<3;
   // Init MPI
   MPI_Init(&argc, &argv);
   int num_proc;
@@ -62,8 +62,10 @@ int main(int argc, char* argv[])
   end = MPI_Wtime();
 
   if(!my_id) {
-    if (compare(data_C, data_C2, n))
+    if (!compare(data_C, data_C2, n))
       std::cout << "Parallel and serial results are different!" << std::endl;
+    print_matrix<data_t>(data_C, n);
+    print_matrix<data_t>(data_C2, n);
     printf("# elapsed time (parallel_scoring_matrix): %fs\n", end-start);
   }
 

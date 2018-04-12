@@ -12,7 +12,7 @@ void naive_multiply_add(int size, value_t *A, value_t *B, value_t *C)
   //#pragma omp parallel for schedule(dynamic) collapse(2)
   for (int i = 0; i < size; ++i) {
     for (int j = 0; j < size; ++j) {
-      int s = 0;
+      value_t s = 0;
       for (int k = 0; k < size; ++k) {
         s += A[i*size+k] * B[k*size+j];
       }

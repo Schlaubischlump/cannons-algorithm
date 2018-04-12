@@ -11,7 +11,7 @@ Helper class for serial execution.
 
 template <
     typename value_t>
-void print_matrix(value_t A, int N) {
+void print_matrix(value_t *A, int N) {
   for(int x = 0; x < N; ++x) {
       for(int y = 0; y < N; ++y)
           std::cout <<  A[x*N +y] << " \t" ;
@@ -59,10 +59,11 @@ void fill_zero(value_t *A, int N) {
 template <
     typename value_t>
 bool compare(value_t *A, value_t *B, int N) {
+  float eps = 0.0001;
   // return true if both matrices are the same, otherwise false
   for (int i = 0; i < N; ++i) {
     for (int j = 0; j < N; ++j) {
-      if (A[i*N+j] != B[i*N+j]) {
+      if (abs(A[i*N+j] - B[i*N+j]) > eps) {
         return false;
       }
     }
