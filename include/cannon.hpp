@@ -1,7 +1,7 @@
 #ifndef CANNON_HPP
 #define CANNON_HPP
 
-#define MPI_VALUE_TYPE MPI_FLOAT
+#define MPI_VALUE_TYPE MPI_INT
 
 
 template <

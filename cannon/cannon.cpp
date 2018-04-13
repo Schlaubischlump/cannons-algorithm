@@ -2,7 +2,7 @@
 #include "../include/cannon.hpp"
 
 // configure datatypes to use
-typedef float data_t;
+typedef int data_t;
 
 
 int main(int argc, char* argv[])
@@ -31,10 +31,10 @@ int main(int argc, char* argv[])
   if (!my_id) {
     // create matrices to multiply
     data_A = new data_t[n*n];
-    fill_rnd(data_A, n);
+    fill_rnd_int(data_A, n);
 
     data_B = new data_t[n*n];
-    fill_rnd(data_B, n);//_int();
+    fill_rnd_int(data_B, n);//_int();
 
     // create target matrix for serial execution
     data_C = new data_t[n*n];
